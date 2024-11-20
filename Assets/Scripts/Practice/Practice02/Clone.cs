@@ -10,24 +10,35 @@ public class Clone : MonoBehaviour
 
     public float thrustY,
                  thrustZ;
-    private float timeAcorn = 3.0f;
-    // Update is called once per frame
+
+    private float timeAcorn = 3.0f; // hardcode
+
+    //private float timeInvoke = 2.0f;
+   // private float timeRepeating = 4.0f;
+
+    private void Start()
+    {
+
+        //Invoke("CreateAcorns", timeInvoke);
+        //InvokeRepeating("CreateAcorns", timeInvoke, timeRepeating);
+    }
+
+
     void Update()
     {
 
         CreateAcorns();
-
 
     }
 
     private void CreateAcorns() 
     {
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) // "si Clic izquierdo"
         {
-            //Crear clones del prefabricado de la bellota
-            //Como no le indico donde quiero que genere el clon, 
-            //se crea en la posición (0.0f, 0.0f, 0.0f)
+            // Crear clones del prefabricado de la bellota
+            //  <Como no le indico donde quiero que genere el clon, 
+            //  se crea en la posición (0.0f, 0.0f, 0.0f)>
             GameObject cloneAcorn = Instantiate(Acorn, PosRotAcorn.position, PosRotAcorn.rotation);
 
             //Obtengo el componente Rigidbody de cada bellota
